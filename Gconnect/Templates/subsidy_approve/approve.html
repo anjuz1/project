@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Approve Subsidy</title>
+	{% include "header.html" %}
+</head>
+<body>
+{% if messages %}
+<ul>
+{% for message in messages %}
+	<script>
+		alert('{{ message }}');
+	</script>
+{% endfor %}
+</ul>
+{% endif %}
+<h3><center>PRIORITY LIST</center></h3>
+
+<table style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)" align="center">
+    <tr>
+        <th>Subsidy Type:</th>
+        <td>{{ obj.sub_typ }}</td>
+    </tr>
+    <tr>
+        <th>Applicant's Name:</th>
+        <td>{{ obj.applicant_name }}</td>
+    </tr>
+    <tr>
+        <th>House name:</th>
+        <td>{{ obj.Address_hname }}</td>
+    </tr>
+    <tr>
+
+			<th>Street:</th>
+         	<td>
+			 {{ obj.Address_po }}
+		 	</td>
+		</tr>
+		<tr>
+
+			<th>City:</th>
+         	<td>
+			 {{ obj.Address_road }}
+		 	</td>
+		</tr>
+        <tr>
+
+			<th>Phone Number:</th>
+         	<td>
+			 {{ obj.mob }}
+		 	</td>
+		</tr>
+		<tr>
+
+			<th> Old Ward/House no:
+               </th>
+         	<td>
+			 {{ obj.ward_hno_old }}
+            </td>
+
+        </tr><tr>
+            <th>
+            New Ward/House no:
+            </th>
+            <td>
+
+			 {{ obj.ward_hno_new }}
+		 	</td>
+		</tr>
+		<tr>
+
+			<th>Social Category:</th>
+         	<td>
+			 {{ obj.social_cat }}
+		 	</td>
+		</tr>
+		 <tr>
+			<th>Area of land:</th>
+         	<td>
+                {{ obj.land_area }}</td>
+        </tr>
+    <tr>
+            <th>
+		 	Surey Number:
+            </th><td>
+			 {{ obj.survey_no }}
+		 	</th>
+		</tr>
+        <tr>
+			<th>Is any subsidy received before?:</th>
+         	<td>
+			 {{ obj.prev_subsidy }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>APL or BPL:</th>
+         	<td>
+			 {{ obj.apl_bpl }}
+		 	</td>
+		</tr>
+    <tr>
+
+			<th>Is any family member from mental or physical challenges:</th>
+         	<td>
+			 {{ obj.mental_physical_challenge }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Current situation of House:</th>
+         	<td>
+			 {{ obj.house_typ }}
+		 	</td>
+		</tr>
+		 <tr>
+			<th>Ration Card No:</th>
+         	<td>
+			 {{ obj.ration_card_no }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Adhar Card No:</th>
+         	<td>
+			 {{ obj.adhar_card_no }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Election Card No:</th>
+         	<td>
+			 {{ obj.voter_id }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Eligibility of applicant :</th>
+
+         	<td>
+			 1.{{ obj.first_elig }}
+		 	</td>
+		</tr>
+	<tr>
+			<th></th>
+
+         	<td>
+			 2.{{ obj.sec_elig }}
+		 	</td>
+		</tr>
+	<tr>
+			<th></th>
+         	<td>
+			 3.{{ obj.third_elig }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Priority of applicant :</th>
+         	<td>
+			 1.{{ obj.first_prio }}
+		 	</td>
+		</tr>
+		 <tr>
+			<th></th>
+         	<td>
+			 2.{{ obj.sec_prio }}
+		 	</td>
+		</tr>
+		<tr>
+			<th></th>
+         	<td>
+			 3.{{ obj.third_prio }}
+		 	</td>
+		</tr>
+		<tr>
+			<th></th>
+         	<td>
+			 4.{{ obj.fourth_prio }}
+		 	</td>
+		</tr>
+		<tr>
+			<th></th>
+         	<td>
+			 5.{{ obj.fifth_prio }}
+		 	</td>
+		</tr>
+    <tr>
+    <tr>
+    <td></td>
+	<tr>
+		<th>Total Mark</th>
+
+		<td>{{ tot }}</td>
+</tr>
+</tr>
+
+
+</table>
+<!--list all values in sub_priority table-->
+<!--<table align="center">-->
+	<!--<tr>-->
+		<!--<th>Priority </th>-->
+		<!--<td></td>-->
+		<!--<th>Mark</th>-->
+<!--</tr>-->
+	<!--tot=0-->
+	<!--{% for prio in data %}-->
+<!---->
+	<!--<tr>-->
+	<!--<th>{{ prio.subsidy_prio_name }}</th>-->
+	<!--<td></td>-->
+	<!--<th>{{ prio.subsidy_prio_mark }}</th>-->
+		<!--</tr>-->
+		<!--i={{ forloop.counter }}-->
+		<!--p[i]={{ prio.subsidy_prio_mark }}-->
+		<!--{% if p[i]==-->
+
+
+
+
+	<!--{% endfor %}-->
+
+	<!--</table>-->
+
+<!--list priority and marks of applicant-->
+
+<!--<table style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)" align="center">-->
+	<!--<tr>-->
+		<!--<th>Priority </th>-->
+		<!--<td></td>-->
+		<!--<th>Mark</th>-->
+<!--</tr>-->
+	<!--<tr><td>{{ p1.subsidy_prio_name }}</td>-->
+		<!--<td></td>-->
+		<!--<td>{{ p1.subsidy_prio_mark }}</td>-->
+	<!--</tr>-->
+	<!--<tr>-->
+	<!--<td>{{ p2.subsidy_prio_name }}</td>-->
+		<!--<td></td>-->
+		<!--<td>{{ p2.subsidy_prio_mark }}</td></tr>-->
+	<!--<tr>-->
+		<!--<td>{{ p3.subsidy_prio_name }}</td>-->
+		<!--<td></td>-->
+	<!--<td>{{ p3.subsidy_prio_mark }}</td></tr>-->
+	<!--<tr>-->
+		<!--<td>{{ p4.subsidy_prio_name }}</td>-->
+		<!--<td></td>-->
+		<!--<td>{{ p4.subsidy_prio_mark }}</td></tr>-->
+	<!--<tr>-->
+		<!--<td>{{ p5.subsidy_prio_name }}</td>-->
+		<!--<td></td>-->
+		<!--<td>{{ p5.subsidy_prio_mark }}</td></tr>-->
+	<!--</tr>-->
+	<!--<tr>-->
+		<!--<td>Total </td>-->
+		<!--<td></td>-->
+		<!--<td>{{ tot }}</td>-->
+<!--</tr>-->
+<!--</table>-->
+</body>
+{% include "footer.html" %}
+</html>

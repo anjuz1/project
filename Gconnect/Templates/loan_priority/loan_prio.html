@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loan priority</title>
+	{% include "header.html" %}
+</head>
+<body>
+<form method="post">
+	{% csrf_token %}
+	<br><br>
+    <h2><b><center> LOAN PROIRITY</center></b></h2>
+	<br><br>
+<table align="center">
+		<tr>
+			<th>Loan Priority:</th>
+         	<td>
+			 {{ form.loan_prio_name }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Priority Mark:</th>
+         	<td>
+			 {{ form.loan_prio_mark }}
+		 	</td>
+		</tr>
+        <tr>
+            <td colspan="2"><center><button type="submit">Submit</button></td>
+		</tr>
+</table>
+</form>
+
+	<table border="=1" align="center">
+	<tr>
+		<td>
+			 id
+		</td>
+		<td>
+			Loan Priority Category
+		</td>
+		<td>
+			Mark
+		</td>
+		<td>
+			Edit/Delete
+		</td>
+	</tr>
+	{% for obj in data %}
+	<tr>
+		<td>
+			{{ obj.id }}
+		</td>
+		<td>
+			{{ obj.loan_prio_name }}
+		</td>
+		<td>
+			{{ obj.loan_prio_mark }}
+		</td>
+		<td>
+		<a href="{% url 'loan_priority:edit_loanpriority' pk=obj.id %}">edit</a>
+		<a href="{% url 'loan_priority:delete_loanpriority' pk=obj.id %}">delete</a>
+		</td>
+
+	</tr>
+	{% endfor %}
+
+
+</table>
+</body>
+{% include "footer.html" %}
+</html>

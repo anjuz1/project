@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Member</title>
+</head>
+<body>
+<form method="post">
+	{% csrf_token %}
+<table align="center">
+		<tr>
+			<th>Name:</th>
+			<td> {{ form.member_name }}</td>
+
+		</tr>
+        <tr>
+			<th>Age:</th>
+			<td> {{ form.member_age }}</td>
+		</tr>
+        <tr>
+			<th>Education:</th>
+			<td> {{ form.member_education }}</td>
+		</tr>
+        <tr>
+			<th>Job:</th>
+			<td> {{ form.member_job }}</td>
+		</tr>
+    <tr>
+			<th>Phone number:</th>
+			<td> {{ form.member_phnum }}</td>
+		</tr><tr>
+			<th>Mail id:</th>
+			<td> {{ form.member_mailid }}</td>
+		</tr>
+    <tr>
+			<th>Gender:</th>
+			<td> {{ form.member_gender }}</td>
+		</tr>
+    <tr>
+			<th>Social Category:</th>
+			<td> {{ form.member_social_cat }}</td>
+		</tr>
+    <tr>
+			<th>Consideration:</th>
+			<td> {{ form.member_consideration }}</td>
+		</tr>
+    <tr>
+			<th>House name:</th>
+			<td> {{ form.house_name }}</td>
+		</tr>
+
+    <tr>
+            <td><button type="submit">Submit</button></td>
+		</tr>
+
+	</table>
+	</form>
+<table border="=1" align="center">
+	<tr>
+		<td>
+			 Name
+		</td>
+		<td>
+			Age
+		</td>
+		<td>
+		    Education
+		</td>
+		<td>
+		    Job
+		</td>
+		<td>
+		    Phone number
+		</td>
+        <td>
+		     Mail id
+		</td>
+        <td>
+		     Gender
+		</td>
+        <td>
+		    Social category
+		</td>
+        <td>
+		     Consideration
+		</td>
+        <td>
+		    House Name
+		</td>
+		<td>
+			Edit/Delete
+		</td>
+	</tr>
+	{% for obj in data %}
+	<tr>
+		<td>
+			{{ obj.id }}
+		</td>
+		<td>
+			{{ obj.member_name }}
+		</td>
+		<td>
+			{{ obj.member_age }}
+		</td>
+		<td>
+			{{ obj.member_education }}
+		</td>
+		<td>
+			{{ obj.member_job }}
+		</td>
+        <td>
+			{{ obj.member_phnum }}
+		</td>
+        <td>
+			{{ obj.member_mailid }}
+		</td>
+        <td>
+			{{ obj.member_gender }}
+		</td>
+        <td>
+			{{ obj.member_social_cat }}
+		</td>
+        <td>
+			{{ obj.member_consideration }}
+		</td><td>
+			{{ obj.house_name }}
+		</td>
+
+		<td>
+		<a href="{% url 'members:edit_member' pk=obj.id %}">edit</a>
+		<a href="{% url 'members:delete_member' pk=obj.id %}">delete</a>
+		</td>
+
+	</tr>
+	{% endfor %}
+
+
+</table>
+</body>
+</html>

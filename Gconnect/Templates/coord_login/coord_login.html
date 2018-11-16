@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>coordinator login</title>
+	{% include "header.html" %}
+</head>
+<body>
+<form method="post">
+	{% csrf_token %}
+	<br><br>
+    <h2><b><center> COORDINATOR LOGIN</center></b></h2>
+	<BR>
+<table align="center">
+		<tr>
+			<th>User Name:</th>
+         	<td>
+			 {{ form.username }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Password:</th>
+         	<td>
+			 {{ form.password }}
+		 	</td>
+		</tr>
+        <tr>
+            <td colspan="2"><center><button type="submit">Login</button></center></td>
+		</tr>
+</table>
+</form>
+</body>
+{% include "footer.html" %}
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>place</title>
+	{% include "header.html" %}
+</head>
+<body>
+<form method="post">
+	{% csrf_token %}
+	<br><br>
+    <h2><b><center> PLACES</center></b></h2>
+
+<table align="center">
+		<tr>
+			<th>Place:</th>
+			<td>
+			 {{ form.name }}
+		 	</td>
+		</tr>
+		<br><br>
+    	<tr>
+            <td colspan="2"><center><button type="submit">Submit</button></center></td>
+		</tr>
+
+</table>
+</form>
+<table border="=1" align="center">
+	<tr>
+		<td>
+			Place id
+		</td>
+		<td>
+			Place
+		</td>
+		<td>
+			Edit/Delete
+		</td>
+	</tr>
+	{% for obj in data %}
+	<tr>
+		<td>
+			{{ obj.id }}
+		</td>
+		<td>
+			{{ obj.name }}
+		</td>
+		<td>
+			<a href="{% url 'place:edit_place' pk=obj.id %}">edit</a>
+			<a href="{% url 'place:delete_place' pk=obj.id %}">delete</a>
+		</td>
+
+	</tr>
+	{% endfor %}
+</table>
+
+</body>
+{% include "footer.html" %}
+</html>

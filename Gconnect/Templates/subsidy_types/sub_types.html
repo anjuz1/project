@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Subsidy Types</title>
+	{% include "header.html" %}
+</head>
+<body>
+<form method="post">
+	{% csrf_token %}
+	<br><br>
+    <h2><b><center> SUBSIDY TYPES</center></b></h2>
+	<br><br>
+<table align="center">
+		<tr>
+			<th>Subsidy Type:</th>
+         	<td>
+			 {{ form.subsidy_type_name }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Subsidy Share Percentage:</th>
+         	<td>
+			 {{ form.subsidy_type_sub_perc }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Consumer Share Percentage:</th>
+         	<td>
+			 {{ form.subsidy_type_self_perc }}
+		 	</td>
+		</tr>
+    <tr>
+            <td colspan="2"><center><button type="submit">Submit</button></td>
+		</tr>
+</table>
+</form>
+
+	<table border="=1" align="center">
+	<tr>
+		<td>
+			 id
+		</td>
+		<td>
+			Subsidy Type
+		</td>
+		<td>
+			Subsidy Percentage
+		</td>
+		<td>
+			Self Percentage
+		</td>
+		<td>
+			Edit/Delete
+		</td>
+	</tr>
+	{% for obj in data %}
+	<tr>
+		<td>
+			{{ obj.id }}
+		</td>
+		<td>
+			{{ obj.subsidy_type_name }}
+		</td>
+		<td>
+			{{ obj.subsidy_type_sub_perc }}
+		</td>
+		<td>
+			{{ obj.subsidy_type_self_perc }}
+		</td>
+		<td>
+		<a href="{% url 'subsidy_types:edit_subtypes' pk=obj.id %}">edit</a>
+		<a href="{% url 'subsidy_types:delete_subtypes' pk=obj.id %}">delete</a>
+		</td>
+
+	</tr>
+	{% endfor %}
+
+
+</table>
+</body>
+{% include "footer.html" %}
+</html>

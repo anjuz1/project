@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance</title>
+	{% include "header.html" %}
+</head>
+
+<body>
+{% if messages %}
+<ul>
+{% for message in messages %}
+	<script>
+		alert('{{ message }}');
+	</script>
+{% endfor %}
+</ul>
+{% endif %}
+<br>
+<h2><center>Attendance</center></h2>
+<br>
+<form method="post">
+	{% csrf_token %}
+
+<table align="center">
+
+	<tr>
+	<th>Meeting Agenda:</th>
+		<td>
+			{{ form.meeting }}
+		</td>
+	</tr>
+	<tr>
+	<th>Date:</th>
+	<td>{{ datest.date }}</td>
+	</tr>
+</table>
+	<table border="=1" align="center">
+	<tr>
+		<td>
+            id
+		</td>
+		<td>
+			House Name
+		</td>
+		<td>
+			Member Name
+		</td>
+		<td>
+			Present
+		</td>
+
+	</tr>
+	{% for obj in data %}
+		{% if obj.member_age > 18 %}
+        <tr>
+		<td>
+			{{ obj.id }}
+		</td>
+
+		<td>
+			{{ obj.house_name }}
+		</td>
+		<td>{{ obj.member_name }}</td>
+		<td>
+			<a href="{% url 'attendance:memb_attendance' pk=obj.id %}"><img src="{% static 'tickbutton-e1.jpg'  %}"></a>
+		</td>
+			<td>
+
+				{% if mem.t_member == obj.id %}
+
+
+			{{ status }}
+
+
+				{% endif %}
+
+			</td>
+	</tr>
+		{% endif %}
+	{% endfor %}
+<td>{{ count }}</td>
+</table>
+
+</form>
+<table>
+	<br><br>
+
+</table>
+<table align="center" width="50%" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+	<tr>
+		<th align="center">{{ datest.date }}</th>
+	</tr>
+	{% for objtme in datemem %}
+	<tr>
+		<td>{{ forloop.counter }}</td>
+		{% for objme in data %}
+			{% if objtme.t_member == objme.id %}
+				<td>{{ objme.member_name }}</td>
+			{% endif %}
+		{% endfor %}
+	</tr>
+	{% endfor %}
+</table>
+</body>
+{% include "footer.html" %}
+</html>

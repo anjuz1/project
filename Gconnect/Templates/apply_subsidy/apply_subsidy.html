@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>subsidy application</title>
+{% include "header.html" %}
+</head>
+<body>
+{% if messages %}
+<ul>
+{% for message in messages %}
+	<script>
+		alert('{{ message }}');
+	</script>
+{% endfor %}
+</ul>
+{% endif %}
+<form method="post">
+	{% csrf_token %}
+	<br>
+    <h2><b><center>SUBSIDY APPLICATION</center></b></h2>
+	<br>
+<table align="center">
+
+        <tr>
+			<th>Subsidy Type:</th>
+         	<td>
+			 {{ form.sub_typ }}
+		 	</td>
+		</tr>
+		<tr>
+
+			<th>Name of the applicant:</th>
+         	<td>
+			 {{ form.applicant_name }}
+		 	</td>
+		</tr>
+		 <tr>
+
+			<th>Address:</th>
+         	<td>
+			 {{ form.Address_hname }}
+		 	</td>
+		</tr>
+
+	<tr>
+
+			<th>Street:</th>
+         	<td>
+			 {{ form.Address_po }}
+		 	</td>
+		</tr>
+		<tr>
+
+			<th>City:</th>
+         	<td>
+			 {{ form.Address_road }}
+		 	</td>
+		</tr>
+        <tr>
+
+			<th>Phone Number:</th>
+         	<td>
+			 {{ form.mob }}
+		 	</td>
+		</tr>
+		<tr>
+
+			<th> Old Ward/House no:
+               </th>
+         	<td>
+			 {{ form.ward_hno_old }}
+            </td>
+
+        </tr><tr>
+            <th>
+            New Ward/House no:
+            </th>
+            <td>
+
+			 {{ form.ward_hno_new }}
+		 	</td>
+		</tr>
+		<tr>
+
+			<th>Social Category:</th>
+         	<td>
+			 {{ form.social_cat }}
+		 	</td>
+		</tr>
+		 <tr>
+			<th>Area of land:</th>
+         	<td>
+                {{ form.land_area }}</td>
+        </tr>
+    <tr>
+            <th>
+		 	Surey Number:
+            </th><td>
+			 {{ form.survey_no }}
+		 	</th>
+		</tr>
+        <tr>
+			<th>Is any subsidy received before?:</th>
+         	<td>
+			 {{ form.prev_subsidy }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>APL or BPL:</th>
+         	<td>
+			 {{ form.apl_bpl }}
+		 	</td>
+		</tr>
+		<!--<tr>-->
+			<!--<th>Special Consideration:</th>-->
+         	<!--<td>-->
+
+					<!--<input type="checkbox" name="consid" value="1">Widow</input>-->
+    				<!--<input type="checkbox" name="consid" value="2">Dependent</input>-->
+    				<!--<input type="checkbox" name="consid" value="3">Handicapped</input>-->
+    				<!--<input type="checkbox" name="consid" value="4">not married women</input>-->
+					<!--<input type="checkbox" name="consid" value="5">lifelong patient</input>-->
+					<!--<input type="checkbox" name="consid" value="6">lived in collany</input>-->
+					<!--<input type="checkbox" name="consid" value="7">small farmer</input>-->
+					<!--<input type="radio" name="none" value="none">none</input>-->
+					<!--<input id="completed" type="checkbox" name="completed" required="false">widow</input>-->
+
+		 	<!--</td>-->
+		<!--</tr>-->
+		<tr>
+
+			<th>Is any family member from mental or physical challenges:</th>
+         	<td>
+			 {{ form.mental_physical_challenge }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Current situation of House:</th>
+         	<td>
+			 {{ form.house_typ }}
+		 	</td>
+		</tr>
+		 <tr>
+			<th>Ration Card No:</th>
+         	<td>
+			 {{ form.ration_card_no }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Adhar Card No:</th>
+         	<td>
+			 {{ form.adhar_card_no }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Election Card No:</th>
+         	<td>
+			 {{ form.voter_id }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Eligibility of applicant :</th>
+         	<td>
+			 1.{{ form.first_elig }}
+		 	</td>
+		</tr>
+	<tr>
+			<th></th>
+         	<td>
+			 2.{{ form.sec_elig }}
+		 	</td>
+		</tr>
+	<tr>
+			<th></th>
+         	<td>
+			 3.{{ form.third_elig }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Priority of applicant :</th>
+         	<td>
+			 1.{{ form.first_prio }}
+		 	</td>
+		</tr>
+		 <tr>
+			<th></th>
+         	<td>
+			 2.{{ form.sec_prio }}
+		 	</td>
+		</tr>
+		<tr>
+			<th></th>
+         	<td>
+			 3.{{ form.third_prio }}
+		 	</td>
+		</tr>
+		<tr>
+			<th></th>
+         	<td>
+			 4.{{ form.fourth_prio }}
+		 	</td>
+		</tr>
+		<tr>
+			<th></th>
+         	<td>
+			 5.{{ form.fifth_prio }}
+		 	</td>
+		</tr>
+    <tr>
+    <tr>
+    <td></td>
+</tr>
+
+
+
+
+
+        <tr>
+             <td colspan="2"><center><button type="submit">Apply</button></center></td>
+		</tr>
+</table>
+</form>
+<!--<table style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)" align="center">-->
+	<!--{% for obj in data %}-->
+	<!--<tr>-->
+		<!--<th>-->
+			<!--{{ obj.subsidy_prio_name }}-->
+		<!--</th>-->
+		<!--<td>-->
+			<!--{{ obj.subsidy_prio_mark }}-->
+		<!--</td>-->
+	<!--</tr>-->
+	<!--{% endfor %}-->
+<!--</table>-->
+
+</body>
+{% include "footer.html" %}
+</html>

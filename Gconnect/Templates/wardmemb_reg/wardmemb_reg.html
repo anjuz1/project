@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ward member registration</title>
+</head>
+<body>
+<form method="post">
+	{% csrf_token %}
+<table align="center">
+		<tr>
+			<th>Name:</th>
+         	<td>
+			 {{ form.wardmemb_name }}
+		 	</td>
+		</tr>
+
+		<tr>
+			<th>house name:</th>
+			<td>
+			 {{ form.wardmemb_hname }}
+		 	</td>
+		</tr>
+		<tr>
+			<th>Post Office:</th>
+			<td>
+			 {{ form.wardmemb_po }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Street:</th>
+			<td>
+			 {{ form.wardmemb_place }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Phone no:</th>
+			<td>
+			 {{ form.wardmemb_phno }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Mail id:</th>
+			<td>
+			 {{ form.wardmemb_mailid}}
+		 	</td>
+		</tr>
+		<tr>
+			<th>gender:</th>
+			<td>
+			 {{ form.wardmemb_gender }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Coordi:</th>
+			<td>
+			 {{ form.wardmemb_dob }}
+		 	</td>
+		<tr>
+			<th>Username:</th>
+			<td>
+			 {{ form.wardmemb_uname }}
+		 	</td>
+		</tr>
+		<tr>
+			<th>Password:</th>
+			<td>
+			 {{ form.wardmemb_pwd }}
+		 	</td>
+		</tr>
+        <tr>
+            <td><button type="submit">Register</button></td>
+		</tr>
+
+	</table>
+	</form>
+
+
+</body>
+</html>

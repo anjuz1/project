@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view subsidy</title>
+    {% include "header.html" %}
+</head>
+<body>
+{% for obj in data %}
+    {% ifequal obj.status 0 %}
+<br><br>
+
+
+<table style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)" align="center">
+
+    <tr>
+        <th>Subsidy Type:</th>
+        <td>{{ obj.sub_typ }}</td>
+    </tr>
+    <tr>
+        <th>Applicant's Name:</th>
+        <td>{{ obj.applicant_name }}</td>
+    </tr>
+    <tr>
+        <th>House name:</th>
+        <td>{{ obj.Address_hname }}</td>
+    </tr>
+    <tr>
+        <th>Phone Number:</th>
+        <td>{{ obj.mob }}</td>
+    </tr>
+    <tr>
+        <th> Ward/House no:</th>
+        <td>{{ obj.ward_hno_new }}</td>
+    </tr>
+    <tr>
+        <td>Status: {{ obj.status }}</td>
+    </tr>
+    <tr>
+        <td>
+            <a href="{% url 'subsidy_calc_priority:calc_priority' pk=obj.id %}">Approve</a>
+
+
+		</td>
+
+
+    <br>
+
+
+
+</table>
+    {% endifequal %}
+{% endfor %}
+</body>
+{% include "footer.html" %}
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>G-Meeting</title>
+</head>
+<body>
+<br>
+<h2><center>Attendance</center></h2>
+<br>
+<form method="post">
+	{% csrf_token %}
+
+<table align="center">
+
+	<tr>
+	<th>Meeting Agenda:</th>
+		<td>
+			{{ ag.meeting_agenda }}
+		</td>
+	</tr>
+	<tr>
+	<th>Date:</th>
+	<td>{{ ag.meeting_date }}</td>
+	</tr>
+	<tr>
+	<th>Decisions:</th>
+	<td>{{ form.decisions }}</td>
+	</tr>
+
+<table align="center" width="50%" style="box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+	<tr>
+		<th align="center">{{ datest.date }}</th>
+	</tr>
+	{% for objtme in datemem %}
+	<tr>
+		<td>{{ forloop.counter }}</td>
+		{% for objme in data %}
+			{% if objtme.t_member == objme.id %}
+				<td>{{ objme.member_name }}</td>
+			{% endif %}
+		{% endfor %}
+	</tr>
+	{% endfor %}
+</table>
+<tr>
+	<td>{{ c.pcount }}</td>
+             <td colspan="2"><center><button type="submit">Submit</button></center></td>
+		</tr>
+</table>
+
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ward member login</title>
+    {% include "header.html" %}
+
+</head>
+<body>
+<form method="post">
+
+    {% csrf_token %}
+    <br><br><br><br>
+    <h2><b><center> LOGIN</center></b></h2>
+    <table border="1" align="center">
+
+        <tr>
+            <td>Username</td>
+            <td>{{form.username}}</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>{{form.password}}</td>
+        </tr>
+          <tr>
+
+            <td colspan="2"><center><input type="submit" name="submit" value="Login"/></center></td>
+        </tr>
+    </table>
+</form>
+
+<table>
+	<tr>
+
+		<td>
+			{{ data }}
+		</td>
+
+	</tr>
+
+	</table>
+</body>
+{% include "footer.html" %}
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>subsidy Details</title>
+	{% include "header.html" %}
+</head>
+<body>
+<form method="post">
+	{% csrf_token %}
+	<br><br>
+    <h2><b><center> SUBSIDY DETAILS</center></b></h2>
+	<br><br>
+<table align="center">
+		<tr>
+			<th>Subsidy Type:</th>
+         	<td>
+			 {{ form.subsidy_typ_name }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Eligibility:</th>
+         	<td>
+			 {{ form.subsidy_elig_name }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Priority:</th>
+         	<td>
+			 {{ form.subsidy_prio_name }}
+		 	</td>
+		</tr>
+        <tr>
+			<td colspan="2"><center><button type="submit">Submit</button></center></td>
+		</tr>
+</table>
+</form>
+
+	<table border="=1" align="center">
+	<tr>
+		<td>
+			 id
+		</td>
+		<td>
+			Subsidy TYpe
+		</td>
+		<td>
+			Eligibility
+		</td>
+        <td>
+			Priority
+		</td>
+		<td>
+			Edit/Delete
+		</td>
+	</tr>
+	{% for obj in data %}
+	<tr>
+		<td>
+			{{ obj.id }}
+		</td>
+		<td>
+			{{ obj.subsidy_typ_name }}
+		</td>
+        <td>
+			{{ obj.subsidy_elig_name }}
+		</td>
+		<td>
+			{{ obj.subsidy_prio_name }}
+		</td>
+		<td>
+		<a href="{% url 'subsidy_details:edit_subdetails' pk=obj.id %}">edit</a>
+		<a href="{% url 'subsidy_details:delete_subdetails' pk=obj.id %}">delete</a>
+		</td>
+
+	</tr>
+	{% endfor %}
+
+
+</table>
+</body>
+{% include "footer.html" %}
+</html>

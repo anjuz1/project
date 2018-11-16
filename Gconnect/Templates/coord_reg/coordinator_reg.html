@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>coorinator registration</title>
+	{% include "header.html" %}
+</head>
+<body>
+{% if messages %}
+<ul>
+{% for message in messages %}
+	<script>
+		alert('{{ message }}');
+	</script>
+	{% endfor %}
+</ul>
+{% endif %}
+
+<form method="post" action=".">
+	{% csrf_token %}
+	<br><br>
+    <h2><b><center> COORDINATOR REGISTRATION</center></b></h2>
+	<br><br>
+<table align="center">
+		<tr>
+			<th>Coordinator Name:</th>
+         	<td>
+			 {{ form.coord_name }}
+		 	</td>
+		</tr>
+
+		<tr>
+			<th>house name:</th>
+			<td>
+			 {{ form.coord_hname }}
+		 	</td>
+		</tr>
+		<tr>
+			<th>Post Office:</th>
+			<td>
+			 {{ form.coord_po }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Street:</th>
+			<td>
+			 {{ form.coord_place }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Phone no:</th>
+			<td>
+			 {{ form.coord_phno }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Mail id:</th>
+			<td>
+			 {{ form.coord_mailid}}
+		 	</td>
+		</tr>
+		<tr>
+			<th>gender:</th>
+			<td>
+			 {{ form.coord_gender }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>Coordi:</th>
+			<td>
+			 {{ form.coord_dob }}
+		 	</td>
+		<tr>
+			<th>Username:</th>
+			<td>
+			 {{ form.coord_uname }}
+		 	</td>
+		</tr>
+		<tr>
+			<th>Password:</th>
+			<td>
+			 {{ form.coord_pwd }}
+		 	</td>
+		</tr>
+		<tr>
+			<th>
+			confirm password:
+			</th>
+			<td>
+				{{ form.confirm_pwd }}
+			</td>
+		<!--</tr>-->
+		</tr>
+        <tr>
+			<td colspan="2"><center><button type="submit">Register</button></center></td>
+		</tr>
+
+	</table>
+	</form>
+<table border="=1" align="center">
+	<tr>
+		<td>
+			id
+		</td>
+		<td>
+			name
+		</td>
+		<td>
+			house name
+		</td>
+		<td>
+			gender
+		</td>
+		<td>
+			dob
+		</td>
+		<td>
+			phone no
+		</td>
+		<td>
+			mail id
+		</td>
+
+		<td>
+			user name
+		</td>
+		<td>
+			password
+		</td>
+
+		<td>
+			Edit\Delete
+		</td>
+	</tr>
+	{% for obj in data %}
+	<tr>
+		<td>
+			{{ obj.id }}
+		</td>
+		<td>
+			{{ obj.coord_name }}
+		</td>
+		<td>
+			{{ obj.coord_hname }}
+		</td>
+		<td>
+			{{ obj.coord_gender }}
+		</td>
+		<td>
+			{{ obj.coord_dob }}
+		</td>
+		<td>
+			{{ obj.coord_phno }}
+		</td>
+		<td>
+			{{ obj.coord_mailid }}
+		</td>
+		<td>
+			{{ obj.coord_uname }}
+		</td><td>
+			{{ obj.coord_pwd }}
+		</td>
+		<td>
+		<a href="{% url 'coordinator_reg:edit_coordreg' pk=obj.id %}">edit</a>
+		<a href="{% url 'coordinator_reg:delete_coordreg' pk=obj.id %}">delete</a>
+		</td>
+
+	</tr>
+	{% endfor %}
+</table>
+
+</body>
+{% include "footer.html" %}
+</html>

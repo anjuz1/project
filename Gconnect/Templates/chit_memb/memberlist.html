@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> chit membership </title>
+    {% include "header.html" %}
+</head>
+<body>
+<br>
+<h2><center>Chit Members</center></h2>
+<br>
+<form method="post">
+	{% csrf_token %}
+    <table border="=1" align="center">
+	<tr>
+		<td>
+			chit id
+		</td>
+		<td>
+			Member
+		</td>
+        <td>
+            Chit name
+        </td>
+		<td>
+			Installment
+		</td>
+	</tr>
+	{% for obj in data %}
+	<tr>
+		<td>
+			{{ obj.id }}
+		</td>
+		<td>
+			{{ obj.members_name }}
+		</td>
+		<td>
+			{{ obj.chit_name }}
+		</td>
+        <td>
+            <a href="{% url 'chit_final_install:final' pk=obj.id %}">payment</a>
+
+
+		</td>
+
+
+	</tr>
+	{% endfor %}
+</table>
+
+</form>
+</body>
+{% include "footer.html" %}
+</html>

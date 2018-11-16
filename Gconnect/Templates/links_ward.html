@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Portfolio | Corlate</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet">
+    <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+<body>
+
+    <section id="portfolio">
+        <div class="container">
+            
+        
+
+            <ul class="portfolio-filter text-center">
+                <li><a class="btn btn-default" href="{% url 'view_subsidy:sub_view' %}" data-filter="*">Approve subsidy</a></li>
+                <li><a class="btn btn-default" href="{% url 'coordinator_reg:CoordRegForms' %}" data-filter="*">Coordinator Registration</a></li>
+                <li><a class="btn btn-default" href="{% url 'place:PlaceForms' %}" data-filter=".bootstrap">Add Place</a></li>
+                <li><a class="btn btn-default" href="{% url 'chit:ChitForms' %}" data-filter=".html">Add Chit</a></li>
+                <li><a class="btn btn-default" href="{% url 'meeting:MeetingForms' %}" data-filter=".wordpress">Fix Meetings</a></li>
+                <li><a class="btn btn-default" href="{% url 'gmeeting:gmeetings' %}" data-filter=".wordpress">G-meeting</a></li>
+                <li class="dropdown" ><a href="#" class="btn btn-default" data-toggle="dropdown">Eligibility<i class="fa fa-angle-down"></i></a>
+                 <ul class="dropdown-menu">
+                                <li><a href="{% url 'subsidy_elig:SubEligForms' %}">Subsidy Eligibility</a></li>
+                                <li><a href="{% url 'loan_elig:LoanEligForms' %}">Loan Eligibility</a></li>
+                 </ul>
+                </li>
+                <!--<li><a class="btn btn-default" href="{% url 'subsidy_elig:SubEligForms' %}" data-filter=".wordpress">Subsidy Eligibility</a></li>-->
+                <li class="dropdown" ><a href="#" class="btn btn-default" data-toggle="dropdown">Priority<i class="fa fa-angle-down"></i></a>
+                 <ul class="dropdown-menu">
+                                <li><a href="{% url 'subsidy_priority:SubPrioForms' %}">Subsidy Priority</a></li>
+                                <li><a href="{% url 'loan_priority:LoanPrioForms' %}">Loan Priority</a></li>
+                 </ul>
+                </li>
+                <li><a class="btn btn-default" href="{% url 'subsidy_types:SubTypeForms' %}" data-filter=".wordpress">Subsidy Types</a></li>
+
+                <!--<li><a class="btn btn-default" href="{% url 'subsidy_priority:SubPrioForms' %}" data-filter=".wordpress">Subsidy Priority</a></li>-->
+                <br><br>
+                <!--<li><a class="btn btn-default" href="{% url 'subsidy_types:SubTypeForms' %}" data-filter=".wordpress">Subsidy Types</a></li>-->
+                <!--/<li><a class="btn btn-default" href="{% url 'subsidy_details:SubDetailsForms' %}" data-filter=".wordpress">Subsidy Details</a></li>-->
+                <!--<li><a class="btn btn-default" href="#" data-filter=".wordpress">Loan Eligibility</a></li>-->
+                <!--<li><a class="btn btn-default" href="#" data-filter=".wordpress">Loan Priority</a></li>-->
+                <li><a class="btn btn-default" href="{% url 'loan_details:LoanDetailsForms' %}" data-filter=".wordpress">Loan Details</a></li>
+                <li><a class="btn btn-default" href="#" data-filter=".wordpress">Minutes</a></li>
+                <li class="dropdown" ><a href="#" class="btn btn-default" data-toggle="dropdown">Priority List<i class="fa fa-angle-down"></i></a>
+                 <ul class="dropdown-menu">
+                                <li><a href="#">Subsidy</a></li>
+                                <li><a href="#">LOan</a></li>
+                 </ul>
+                </li>
+            </ul><!--/#portfolio-filter-->
+                <!--<li><a class="btn btn-default" href="{% url 'view_subsidy:sub_view' %}" data-filter=".wordpress">Loan Details</a></li>-->
+        </div>
+    </section>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wow.min.js"></script>
+
+</body>
+
+</html>

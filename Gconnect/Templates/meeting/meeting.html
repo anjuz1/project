@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>meetings</title>
+	{% include "header.html" %}
+</head>
+<body>
+<form method="post">
+	{% csrf_token %}
+	<br><br>
+    <h2><b><center> MEETINGS</center></b></h2>
+	<br>
+<table align="center">
+		<tr>
+			<th>Place:</th>
+			<td> {{ form.place_name }}</td>
+
+		</tr>
+        <tr>
+			<th>Date:</th>
+			<td> {{ form.meeting_date }}</td>
+		</tr>
+        <tr>
+			<th>Time:</th>
+			<td> {{ form.meeting_time }}</td>
+		</tr>
+        <tr>
+			<th>Agenda:</th>
+			<td> {{ form.meeting_agenda }}</td>
+		</tr>
+    <tr>
+		<td colspan="2"><center><button type="submit">Submit</button></center></td>
+		</tr>
+
+	</table>
+	</form>
+<table border="=1" align="center">
+	<tr>
+		<td>
+			 id
+		</td>
+		<td>
+			Place
+		</td>
+		<td>
+		Date
+		</td>
+		<td>
+		Time
+		</td>
+		<td>
+		Agenda
+		</td>
+		<td>
+			Edit/Delete
+		</td>
+	</tr>
+	{% for obj in data %}
+	<tr>
+		<td>
+			{{ obj.id }}
+		</td>
+		<td>
+			{{ obj.place_name }}
+		</td>
+		<td>
+			{{ obj.meeting_date }}
+		</td>
+		<td>
+			{{ obj.meeting_time }}
+		</td>
+		<td>
+			{{ obj.meeting_agenda }}
+		</td>
+		<td>
+		<a href="{% url 'meeting:edit_meeting' pk=obj.id %}">edit</a>
+		<a href="{% url 'meeting:delete_meeting' pk=obj.id %}">delete</a>
+		</td>
+
+	</tr>
+	{% endfor %}
+
+
+</table>
+</body>
+{% include "footer.html" %}
+</html>

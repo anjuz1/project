@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>subsidy </title>
+	{% include "header.html" %}
+</head>
+<body>
+<form method="post">
+	{% csrf_token %}
+	<br><br>
+    <h2><b><center> SUBSIDY ELIGIBILITY</center></b></h2>
+	<br><br>
+<table align="center">
+		<tr>
+			<th>Subsidy type:</th>
+         	<td>
+			 {{ form.subsidy_ftype }}
+		 	</td>
+		</tr>
+		<tr>
+			<th>Subsidy Eligibility:</th>
+         	<td>
+			 {{ form.subsidy_elig_name }}
+		 	</td>
+		</tr>
+        <tr>
+            <td colspan="2"><center><button type="submit">Submit</button></center></td>
+		</tr>
+</table>
+</form>
+<table border="=1" align="center">
+	<tr>
+		<td>
+			 id
+		</td>
+		<td>
+			Subsidy type
+		</td>
+		<td>
+			Subsidy Eligibility Category
+		</td>
+
+		<td>
+			Edit/Delete
+		</td>
+	</tr>
+	{% for obj in data %}
+	<tr>
+		<td>
+			{{ obj.id }}
+		</td>
+		<td>
+			{{ obj.subsidy_ftype }}
+		</td>
+		<td>
+			{{ obj.subsidy_elig_name }}
+		</td>
+
+		<td>
+		<a href="{% url 'subsidy_elig:edit_subeligibility' pk=obj.id %}">edit</a>
+		<a href="{% url 'subsidy_elig:delete_subeligibility' pk=obj.id %}">delete</a>
+		</td>
+
+	</tr>
+	{% endfor %}
+
+
+</table>
+</body>
+{% include "footer.html" %}
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>payment</title>
+    {% include "header.html" %}
+</head>
+<body>
+{% if messages %}
+<ul>
+{% for message in messages %}
+	<script>
+		alert('{{ message }}');
+	</script>
+{% endfor %}
+</ul>
+{% endif %}
+<form method="post">
+	{% csrf_token %}
+	<br><br>
+    <h2><b><center> CHIT DRAW</center></b></h2>
+
+<table align="center">
+        <tr>
+			<th>id:</th>
+            {% for obj in data %}
+
+			<td>
+			 {{ obj.id }}
+		 	</td>
+		</tr>
+
+        <tr>
+			<th>Member's name:</th>
+
+			<td>
+			 {{ obj.members_name }}
+		 	</td>
+		</tr>
+        <tr>
+			<th>chit name:</th>
+
+
+			<td>
+			 {{ obj.chit_name }}
+		 	</td>
+		</tr>
+
+
+        {% endfor %}
+		<br><br>
+    	<tr>
+            <td colspan="2"><center><button type="submit">Submit</button></center></td>
+		</tr>
+
+</table>
+</form>
+
+</body>
+{% include "footer.html" %}
+</html>
